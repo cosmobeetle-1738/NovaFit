@@ -2,11 +2,14 @@
   "name": "my-app",
   "version": "1.0.0",
   "main": "server/index.js",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
-    "start": "NODE_ENV=production node server_dist/index.js",
     "build:web": "npx expo export:web",
     "build:server": "esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=server_dist",
     "build": "npm run build:web && npm run build:server",
+    "start": "node server_dist/index.js",
     "lint": "npx expo lint",
     "lint:fix": "npx expo lint --fix",
     "check:types": "tsc --noEmit",
